@@ -1,4 +1,29 @@
 public class StringsBasic {
+    class Solution {
+    public boolean isPalindrome(String s) {
+        
+        s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        int i=0;
+        int j=s.length()-1;
+        while(i<j){
+            if(s.charAt(i)!=s.charAt(j)){
+                return false;
+            }else{
+                 i++;
+                j--;
+               
+            }
+        }
+        return true;
+    }
+}
+    public static void validatePalindrome(String s) {
+        // use the inner Solution class to check palindrome
+        StringsBasic outer = new StringsBasic();
+        Solution sol = outer.new Solution();
+        boolean isPal = sol.isPalindrome(s);
+        System.out.println(s + " -> " + isPal);
+    }
     public static void main(String[] args) {
         String name = " Aarti tyagi&^*123";
         // System.out.println(name);
@@ -62,5 +87,7 @@ public class StringsBasic {
         }
 
         System.out.println(ans);
+
+        validatePalindrome("Aarti tyagi");
     }
 }
